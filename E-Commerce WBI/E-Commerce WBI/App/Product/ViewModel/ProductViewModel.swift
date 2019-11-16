@@ -16,7 +16,7 @@ class ProductViewModel {
     
     func loadCategories() {
         
-        let p = [
+        self.categories = [
             CategoryModel(id: 1, name: "Pants", ini: "PA"),
             CategoryModel(id: 2, name: "Shoes", ini: "SH"),
             CategoryModel(id: 3, name: "T-Shirts", ini: "TS"),
@@ -25,7 +25,6 @@ class ProductViewModel {
             CategoryModel(id: 6, name: "Accesories", ini: "AC")
         ]
         
-        print(p)
     }
     
     func loadProducts() {
