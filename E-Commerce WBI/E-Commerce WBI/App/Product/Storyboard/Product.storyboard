@@ -84,16 +84,19 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="271" id="GFq-T4-HIL">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="productCollectionCell" rowHeight="271" id="GFq-T4-HIL">
                                 <rect key="frame" x="0.0" y="113" width="414" height="271"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GFq-T4-HIL" id="oO4-p4-pNN">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="271"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4mm-EU-gkc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="271"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4mm-EU-gkc">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="271"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="271" id="rFg-GA-epL"/>
+                                            </constraints>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DR9-v8-YCz">
                                                 <size key="itemSize" width="149" height="256"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -146,7 +149,14 @@
                                             </cells>
                                         </collectionView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4mm-EU-gkc" firstAttribute="leading" secondItem="oO4-p4-pNN" secondAttribute="leading" id="3Gj-UG-KKG"/>
+                                        <constraint firstAttribute="trailing" secondItem="4mm-EU-gkc" secondAttribute="trailing" id="hfh-l8-LA3"/>
+                                        <constraint firstAttribute="bottom" secondItem="4mm-EU-gkc" secondAttribute="bottom" id="lYx-Zq-SLu"/>
+                                        <constraint firstItem="4mm-EU-gkc" firstAttribute="top" secondItem="oO4-p4-pNN" secondAttribute="top" id="stR-s3-VSp"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>

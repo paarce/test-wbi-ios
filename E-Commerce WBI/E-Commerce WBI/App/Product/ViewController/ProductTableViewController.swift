@@ -22,18 +22,14 @@ class ProductTableViewController: UITableViewController {
         super.viewDidLoad()
         
         productVM.loadCategories()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        productVM.loadProducts()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,16 +38,20 @@ class ProductTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Categories"
+        return section == 0 ? "Categories" : "Products"
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCollectionCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: indexPath.section == 0 ? "categoryCollectionCell" : "productCollectionCell", for: indexPath)
         
         if let col = cell.viewWithTag(1) as? UICollectionView {
             
-            self.loadCategoriesUI(collectionView: col)
+            if indexPath.section == 0 {
+                self.loadCategoriesUI(collectionView: col)
+            }else{
+                self.loadProductsUI(collectionView: col)
+            }
         }
         
         return cell
@@ -85,7 +85,29 @@ class ProductTableViewController: UITableViewController {
                 print(value.element?.name ?? "Empty")
             })
             .disposed(by: disposbag)
+        
+    }
     
+    func loadProductsUI(collectionView : UICollectionView){
+        
+        self.productsCollectionView = collectionView
+        
+        let items = Observable.just(self.productVM.products)
+        
+        items.bind(to: self.productsCollectionView!.rx.items(cellIdentifier: "productCell", cellType: ProductCollectionViewCell.self)) { row, model, cell in
+            
+            cell.data = model
+            
+            }.disposed(by: disposbag)
+        
+        
+        self.productsCollectionView!.rx
+            .modelSelected(ProductModel.self)
+            .subscribe({ value in
+                
+                print(value.element?.name ?? "Empty")
+            })
+            .disposed(by: disposbag)
         
     }
 
