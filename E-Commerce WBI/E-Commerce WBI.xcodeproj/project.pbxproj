@@ -24,6 +24,7 @@
 		8622F521237DE7ED00E067D8 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8622F520237DE7ED00E067D8 /* Product.storyboard */; };
 		8622F523238064F000E067D8 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F522238064F000E067D8 /* Const.swift */; };
 		8622F5252383F51200E067D8 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F5242383F51200E067D8 /* ProductDetailViewController.swift */; };
+		8622F52823841FB400E067D8 /* EcoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F52723841FB300E067D8 /* EcoButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		8622F520237DE7ED00E067D8 /* Product.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
 		8622F522238064F000E067D8 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		8622F5242383F51200E067D8 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		8622F52723841FB300E067D8 /* EcoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoButton.swift; sourceTree = "<group>"; };
 		A4D5B643B250EEC94848EF24 /* Pods-E-Commerce WBI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-Commerce WBI.debug.xcconfig"; path = "Target Support Files/Pods-E-Commerce WBI/Pods-E-Commerce WBI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +176,7 @@
 		8622F5032379D15200E067D8 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				8622F52623841F8D00E067D8 /* Components */,
 				8622F51C237CB57A00E067D8 /* Extensions */,
 				8622F51A237CB54900E067D8 /* Helper.swift */,
 				8622F522238064F000E067D8 /* Const.swift */,
@@ -289,6 +292,14 @@
 				8622F520237DE7ED00E067D8 /* Product.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		8622F52623841F8D00E067D8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8622F52723841FB300E067D8 /* EcoButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,6 +473,7 @@
 			files = (
 				8622F5092379D59F00E067D8 /* LoginViewController.swift in Sources */,
 				8622F51B237CB54900E067D8 /* Helper.swift in Sources */,
+				8622F52823841FB400E067D8 /* EcoButton.swift in Sources */,
 				8622F519237CB26C00E067D8 /* ProductModel.swift in Sources */,
 				8622F50E237CAF2B00E067D8 /* ProductCollectionViewCell.swift in Sources */,
 				8622F510237CAF7600E067D8 /* ProductTableViewController.swift in Sources */,
