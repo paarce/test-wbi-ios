@@ -23,6 +23,7 @@
 		8622F51E237CB5A500E067D8 /* uicolor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F51D237CB5A500E067D8 /* uicolor+extension.swift */; };
 		8622F521237DE7ED00E067D8 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8622F520237DE7ED00E067D8 /* Product.storyboard */; };
 		8622F523238064F000E067D8 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F522238064F000E067D8 /* Const.swift */; };
+		8622F5252383F51200E067D8 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F5242383F51200E067D8 /* ProductDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		8622F51D237CB5A500E067D8 /* uicolor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "uicolor+extension.swift"; sourceTree = "<group>"; };
 		8622F520237DE7ED00E067D8 /* Product.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
 		8622F522238064F000E067D8 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		8622F5242383F51200E067D8 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		A4D5B643B250EEC94848EF24 /* Pods-E-Commerce WBI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-Commerce WBI.debug.xcconfig"; path = "Target Support Files/Pods-E-Commerce WBI/Pods-E-Commerce WBI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				8622F50F237CAF7600E067D8 /* ProductTableViewController.swift */,
+				8622F5242383F51200E067D8 /* ProductDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				8622F510237CAF7600E067D8 /* ProductTableViewController.swift in Sources */,
 				8622F4E12379CFB700E067D8 /* AppDelegate.swift in Sources */,
 				8622F516237CB1EB00E067D8 /* ProductViewModel.swift in Sources */,
+				8622F5252383F51200E067D8 /* ProductDetailViewController.swift in Sources */,
 				8622F51E237CB5A500E067D8 /* uicolor+extension.swift in Sources */,
 				8622F523238064F000E067D8 /* Const.swift in Sources */,
 			);

@@ -121,6 +121,10 @@ class ProductTableViewController: UITableViewController {
             .subscribe({ value in
                 
                 print(value.element?.name ?? "Empty")
+                
+                //if let storyboard
+                self.performSegue(withIdentifier: "showDetail", sender: self)
+                
             })
             .disposed(by: disposbag)
         
