@@ -15,14 +15,22 @@ class ProductTableViewController: UITableViewController {
 
     var productVM = ProductViewModel()
     
-    var categoriesCollectionView : UICollectionView?
-    var productsCollectionView : UICollectionView?
+    var categoriesCollectionView    : UICollectionView?
+    var productsCollectionView      : UICollectionView?
+    
+    var productCellHeight           : CGFloat {
+        
+        let countRows = self.productVM.products.count % 2 == 1 ? self.productVM.products.count + 1 : self.productVM.products.count
+        
+        return 259.0 * CGFloat( countRows / 2)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         productVM.loadCategories()
         productVM.loadProducts()
+        
     }
 
     // MARK: - Table view data source
@@ -57,11 +65,16 @@ class ProductTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return indexPath.section == 0 ? 85.0 : self.productCellHeight
+    }
+    
     
     
     func loadCategoriesUI(collectionView : UICollectionView){
         
         self.categoriesCollectionView = collectionView
+        self.categoriesCollectionView!.dataSource = nil
         
         let items = Observable.just(self.productVM.categories)
     
@@ -77,6 +90,7 @@ class ProductTableViewController: UITableViewController {
             
             }.disposed(by: disposbag)
     
+        
     
         self.categoriesCollectionView!.rx
             .modelSelected(CategoryModel.self)
@@ -91,6 +105,7 @@ class ProductTableViewController: UITableViewController {
     func loadProductsUI(collectionView : UICollectionView){
         
         self.productsCollectionView = collectionView
+        self.productsCollectionView!.dataSource = nil
         
         let items = Observable.just(self.productVM.products)
         
