@@ -14,6 +14,29 @@ class ProductViewModel {
     var products : [ProductModel] = []
     var categories : [CategoryModel] = []
     
+    
+    let productCellHeight           : CGFloat = 256.0
+    var productEntireCellHeight     : CGFloat {
+        
+        let countRows = self.products.count % 2 == 1 ? self.products.count + 1 : self.products.count
+        
+        return self.productCellHeight * ( CGFloat(countRows) / self.countItemInRow) + CGFloat(countRows * 10)
+    }
+    
+    var countItemInRow : CGFloat {
+        
+        switch UIDevice.current.screenType {
+        case .iPhones_5_5s_5c_SE, .iPhones_4_4S:
+            return 1
+        case .iPhones_6_6s_7_8:
+            return 2
+        default:
+            return 3
+        }
+    }
+    
+    
+    
     func loadCategories() {
         
         self.categories = [

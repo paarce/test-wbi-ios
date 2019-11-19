@@ -8,48 +8,58 @@
 
 import UIKit
 
-class ProductDetailViewController: UIViewController {
+class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    var isVisibleNavigation = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.navigationBar.isTranslucent = true
         
-        scrollView.contentInsetAdjustmentBehavior = .never
-       
+        self.scrollView.delegate = self
+        //self.scrollView.contentInsetAdjustmentBehavior = .never
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.barTintColor = UIColor.clear
-        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
         
+        self.setBackgraoundNavigation(visible: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-        self.navigationController?.navigationBar.shadowImage = nil
-        self.navigationController?.navigationBar.isTranslucent = true
+        self.setBackgraoundNavigation(visible: false)
+    }
+    
+    func setBackgraoundNavigation( visible : Bool ) {
+        
+        if (visible && !isVisibleNavigation) || (!visible && isVisibleNavigation) { return }
+        
+        if visible {
+            
+            self.navigationController?.clearBrackgorund()
+        }else {
+            
+            self.navigationController?.defaultBrackgorund()
+        }
+        self.isVisibleNavigation = !isVisibleNavigation
+        
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        //
+        print(nameLabel.frame)
+        
+        self.setBackgraoundNavigation( visible : scrollView.bounds.contains(nameLabel.frame) )
+       
     }
-    */
 
 }

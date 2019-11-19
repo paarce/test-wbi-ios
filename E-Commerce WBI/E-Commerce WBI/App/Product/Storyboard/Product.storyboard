@@ -211,7 +211,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pD-u7-ZzF">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="778"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="782"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lTF-aW-V4X" userLabel="Container">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1133"/>
@@ -310,19 +310,19 @@ If you read it until here, congratulations! If you liked the post and by any cha
                                 <rect key="frame" x="0.0" y="782" width="414" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ay4-uR-WrC">
-                                        <rect key="frame" x="45" y="32" width="43.5" height="21.5"/>
+                                        <rect key="frame" x="45" y="35" width="43.5" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <color key="textColor" name="greenEco"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lw-Eu-SqQ">
-                                        <rect key="frame" x="45" y="18" width="30.5" height="14.5"/>
+                                        <rect key="frame" x="45" y="21" width="30.5" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocC-d5-rID" customClass="EcoButton" customModule="E_Commerce_WBI" customModuleProvider="target">
-                                        <rect key="frame" x="255" y="18" width="137" height="38"/>
+                                        <rect key="frame" x="255" y="21" width="137" height="38"/>
                                         <color key="backgroundColor" name="greenEco"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="hM5-x5-Jkk"/>
@@ -337,7 +337,7 @@ If you read it until here, congratulations! If you liked the post and by any cha
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="1Aa-80-sSw"/>
-                                    <constraint firstItem="3lw-Eu-SqQ" firstAttribute="top" secondItem="tUH-0X-guu" secondAttribute="top" constant="18" id="Uic-xK-5KI"/>
+                                    <constraint firstItem="ocC-d5-rID" firstAttribute="centerY" secondItem="tUH-0X-guu" secondAttribute="centerY" id="OZz-67-1Ep"/>
                                     <constraint firstItem="3lw-Eu-SqQ" firstAttribute="top" secondItem="ocC-d5-rID" secondAttribute="top" id="VXT-Ri-Zlh"/>
                                     <constraint firstItem="ay4-uR-WrC" firstAttribute="top" secondItem="3lw-Eu-SqQ" secondAttribute="bottom" constant="-0.5" id="cA5-rX-uMB"/>
                                     <constraint firstItem="3lw-Eu-SqQ" firstAttribute="leading" secondItem="tUH-0X-guu" secondAttribute="leading" constant="45" id="lKy-Qe-CeY"/>
@@ -349,9 +349,9 @@ If you read it until here, congratulations! If you liked the post and by any cha
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2pD-u7-ZzF" firstAttribute="leading" secondItem="s8d-xV-2RS" secondAttribute="leading" id="8dE-m5-SZC"/>
-                            <constraint firstItem="2pD-u7-ZzF" firstAttribute="bottom" secondItem="9yu-5a-ZsJ" secondAttribute="bottom" constant="-118" id="HrO-v0-rPO"/>
                             <constraint firstItem="tUH-0X-guu" firstAttribute="top" secondItem="s8d-xV-2RS" secondAttribute="bottom" constant="-80" id="Nin-Nr-pW8"/>
                             <constraint firstItem="s8d-xV-2RS" firstAttribute="trailing" secondItem="tUH-0X-guu" secondAttribute="trailing" id="Ode-iU-mDD"/>
+                            <constraint firstItem="tUH-0X-guu" firstAttribute="top" secondItem="2pD-u7-ZzF" secondAttribute="bottom" id="Qmx-hq-IVV"/>
                             <constraint firstItem="HNS-kP-aeR" firstAttribute="top" secondItem="s8d-xV-2RS" secondAttribute="top" priority="900" id="bHw-F0-kpX"/>
                             <constraint firstItem="2pD-u7-ZzF" firstAttribute="trailing" secondItem="s8d-xV-2RS" secondAttribute="trailing" id="cvw-AC-eOp"/>
                             <constraint firstItem="tUH-0X-guu" firstAttribute="leading" secondItem="s8d-xV-2RS" secondAttribute="leading" id="hVU-AE-WdL"/>
@@ -362,6 +362,7 @@ If you read it until here, congratulations! If you liked the post and by any cha
                     </view>
                     <navigationItem key="navigationItem" id="L32-mR-CXP"/>
                     <connections>
+                        <outlet property="nameLabel" destination="TKv-Lw-W6m" id="MBg-hJ-wau"/>
                         <outlet property="scrollView" destination="2pD-u7-ZzF" id="0Hh-at-vhG"/>
                     </connections>
                 </viewController>

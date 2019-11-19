@@ -18,18 +18,6 @@ class ProductTableViewController: UITableViewController {
     var categoriesCollectionView    : UICollectionView?
     var productsCollectionView      : UICollectionView?
     
-    let productCellHeight           : CGFloat = 256.0
-    var productEntireCellHeight     : CGFloat {
-        
-        let countRows = self.productVM.products.count % 2 == 1 ? self.productVM.products.count + 1 : self.productVM.products.count
-        
-        return self.productCellHeight * ( CGFloat(countRows) / self.countItemInRow) + CGFloat(countRows * 10)
-    }
-    
-    var countItemInRow : CGFloat {
-        return 3.0
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,7 +58,7 @@ class ProductTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.section == 0 ? 85.0 : self.productEntireCellHeight
+        return indexPath.section == 0 ? 85.0 : self.productVM.productEntireCellHeight
     }
     
     
@@ -143,11 +131,11 @@ extension ProductTableViewController : UICollectionViewDelegateFlowLayout {
     // MARK: - UICollectionViewDelegateFlowLayout
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.bounds.size.width / self.countItemInRow) - 10.0 , height: self.productCellHeight)
+        return CGSize(width: (collectionView.bounds.size.width / self.productVM.countItemInRow) - 10.0 , height: self.productVM.productCellHeight)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 5.0
+        return 10.0
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
