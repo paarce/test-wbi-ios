@@ -30,13 +30,13 @@ class ProductViewModel {
     func loadProducts() {
         
         self.products = [
-            ProductModel(name: "sss", imageName: "aaaa", detail: "ssssss", price: 20.0, category: categories[0], stock: []),
-            ProductModel(name: "sss", imageName: "aaaa", detail: "ssssss", price: 20.0, category: categories[2], stock: []),
-            ProductModel(name: "sss", imageName: "aaaa", detail: "ssssss", price: 30.0, category: categories[4], stock: []),
-            ProductModel(name: "sss", imageName: "aaaa", detail: "ssssss", price: 22.0, category: categories[1], stock: []),
-            ProductModel(name: "sss", imageName: "aaaa", detail: "ssssss", price: 26.0, category: categories[1], stock: []),
-            ProductModel(name: "sss", imageName: "aaaa", detail: "ssssss", price: 21.0, category: categories[3], stock: []),
-            ProductModel(name: "sss", imageName: "aaaa", detail: "ssssss", price: 22.0, category: categories[2], stock: []),
+            ProductModel(name: "sss", imageName: "1", detail: "ssssss", price: 20.0, category: categories[0], stock: []),
+            ProductModel(name: "sss", imageName: "3", detail: "ssssss", price: 20.0, category: categories[2], stock: []),
+            ProductModel(name: "sss", imageName: "4", detail: "ssssss", price: 30.0, category: categories[4], stock: []),
+            ProductModel(name: "sss", imageName: "2", detail: "ssssss", price: 22.0, category: categories[1], stock: []),
+            ProductModel(name: "sss", imageName: "3", detail: "ssssss", price: 26.0, category: categories[1], stock: []),
+            ProductModel(name: "sss", imageName: "1", detail: "ssssss", price: 21.0, category: categories[3], stock: []),
+            ProductModel(name: "sss", imageName: "2", detail: "ssssss", price: 22.0, category: categories[2], stock: []),
         ]
         
     }

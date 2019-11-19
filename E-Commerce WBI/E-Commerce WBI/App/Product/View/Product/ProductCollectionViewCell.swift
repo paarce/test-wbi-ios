@@ -13,14 +13,16 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     
     var data : ProductModel?
     
     override func draw(_ rect: CGRect) {
         if let data = data {
-            self.imageView.image = UIImage(named: data.imageName ?? "")
+            self.imageView.image = UIImage(named: "product\(data.imageName ?? "")")
             self.nameLabel.text = data.name
             self.typeLabel.text = data.category.name
+            self.priceLabel.text = "$\(data.price?.dollar ?? "$")"
         }
     }
     

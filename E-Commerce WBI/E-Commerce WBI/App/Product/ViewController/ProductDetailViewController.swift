@@ -32,8 +32,6 @@ class ProductDetailViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.clear
         self.navigationController?.navigationBar.backgroundColor = UIColor.clear
         
-        let backButton = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        navigationItem.backBarButtonItem = backButton
     }
     
     override func viewWillDisappear(_ animated: Bool) {

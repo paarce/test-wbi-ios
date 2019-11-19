@@ -18,11 +18,16 @@ class ProductTableViewController: UITableViewController {
     var categoriesCollectionView    : UICollectionView?
     var productsCollectionView      : UICollectionView?
     
-    var productCellHeight           : CGFloat {
+    let productCellHeight           : CGFloat = 256.0
+    var productEntireCellHeight     : CGFloat {
         
         let countRows = self.productVM.products.count % 2 == 1 ? self.productVM.products.count + 1 : self.productVM.products.count
         
-        return 259.0 * CGFloat( countRows / 2)
+        return self.productCellHeight * ( CGFloat(countRows) / self.countItemInRow) + CGFloat(countRows * 10)
+    }
+    
+    var countItemInRow : CGFloat {
+        return 3.0
     }
     
     override func viewDidLoad() {
@@ -30,7 +35,6 @@ class ProductTableViewController: UITableViewController {
         
         productVM.loadCategories()
         productVM.loadProducts()
-        
     }
 
     // MARK: - Table view data source
@@ -66,9 +70,8 @@ class ProductTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.section == 0 ? 85.0 : self.productCellHeight
+        return indexPath.section == 0 ? 85.0 : self.productEntireCellHeight
     }
-    
     
     
     func loadCategoriesUI(collectionView : UICollectionView){
@@ -122,12 +125,32 @@ class ProductTableViewController: UITableViewController {
                 
                 print(value.element?.name ?? "Empty")
                 
-                //if let storyboard
                 self.performSegue(withIdentifier: "showDetail", sender: self)
                 
             })
             .disposed(by: disposbag)
         
+        self.productsCollectionView!.rx
+            .setDelegate(self)
+            .disposed(by: disposbag)
+        
     }
 
+}
+
+extension ProductTableViewController : UICollectionViewDelegateFlowLayout {
+
+    // MARK: - UICollectionViewDelegateFlowLayout
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.bounds.size.width / self.countItemInRow) - 10.0 , height: self.productCellHeight)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 5.0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10.0
+    }
 }
