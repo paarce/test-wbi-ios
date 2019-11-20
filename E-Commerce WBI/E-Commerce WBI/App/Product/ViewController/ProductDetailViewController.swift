@@ -15,12 +15,10 @@ class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
     
     var isVisibleNavigation = true
     
+    var data : ProductModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
         
         self.scrollView.delegate = self
         //self.scrollView.contentInsetAdjustmentBehavior = .never
@@ -45,18 +43,17 @@ class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
         if visible {
             
             self.navigationController?.clearBrackgorund()
+            self.navigationController?.navigationBar.topItem?.title = ""
         }else {
             
             self.navigationController?.defaultBrackgorund()
+            self.navigationController?.navigationBar.topItem?.title = data?.name
         }
         self.isVisibleNavigation = !isVisibleNavigation
         
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        //
-        print(nameLabel.frame)
         
         self.setBackgraoundNavigation( visible : scrollView.bounds.contains(nameLabel.frame) )
        

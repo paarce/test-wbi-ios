@@ -205,7 +205,7 @@
         <!--ProductDetailViewController-->
         <scene sceneID="m4U-qs-Dts">
             <objects>
-                <viewController id="A2K-Tg-ntr" userLabel="ProductDetailViewController" customClass="ProductDetailViewController" customModule="E_Commerce_WBI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductDetailViewController" id="A2K-Tg-ntr" userLabel="ProductDetailViewController" customClass="ProductDetailViewController" customModule="E_Commerce_WBI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9yu-5a-ZsJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -25,7 +25,7 @@ struct ProductModel  {
 struct StockModel  {
     
     let count : Int
-    let size : String?
+    let size : SizeEnum
     let color : ProductColorRGBModel
     
 }
@@ -45,4 +45,12 @@ struct CategoryModel  {
     let id : Int
     let name : String
     let ini : String
+}
+
+
+enum SizeEnum : String {
+    case s = "S"
+    case m = "M"
+    case l = "L"
+    case xl = "XL"
 }

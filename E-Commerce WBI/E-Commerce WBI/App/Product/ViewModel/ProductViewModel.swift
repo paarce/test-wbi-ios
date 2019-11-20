@@ -35,7 +35,12 @@ class ProductViewModel {
         }
     }
     
-    
+    let stocks : [StockModel] = [
+        StockModel(count: 3, size: .s, color: UIColor.black.rgbModel),
+        StockModel(count: 2, size: .l, color: UIColor.blue.rgbModel),
+        StockModel(count: 2, size: .l, color: UIColor.white.rgbModel),
+        StockModel(count: 1, size: .xl, color: UIColor.blue.rgbModel)
+    ]
     
     func loadCategories() {
         
@@ -53,13 +58,13 @@ class ProductViewModel {
     func loadProducts() {
         
         self.products = [
-            ProductModel(name: "sss", imageName: "1", detail: "ssssss", price: 20.0, category: categories[0], stock: []),
-            ProductModel(name: "sss", imageName: "3", detail: "ssssss", price: 20.0, category: categories[2], stock: []),
-            ProductModel(name: "sss", imageName: "4", detail: "ssssss", price: 30.0, category: categories[4], stock: []),
-            ProductModel(name: "sss", imageName: "2", detail: "ssssss", price: 22.0, category: categories[1], stock: []),
-            ProductModel(name: "sss", imageName: "3", detail: "ssssss", price: 26.0, category: categories[1], stock: []),
-            ProductModel(name: "sss", imageName: "1", detail: "ssssss", price: 21.0, category: categories[3], stock: []),
-            ProductModel(name: "sss", imageName: "2", detail: "ssssss", price: 22.0, category: categories[2], stock: []),
+            ProductModel(name: "sss", imageName: "1", detail: "ssssss", price: 20.0, category: categories[0], stock: stocks),
+            ProductModel(name: "sss", imageName: "3", detail: "ssssss", price: 20.0, category: categories[2], stock: stocks),
+            ProductModel(name: "sss", imageName: "4", detail: "ssssss", price: 30.0, category: categories[4], stock: stocks),
+            ProductModel(name: "sss", imageName: "2", detail: "ssssss", price: 22.0, category: categories[1], stock: stocks),
+            ProductModel(name: "sss", imageName: "3", detail: "ssssss", price: 26.0, category: categories[1], stock: stocks),
+            ProductModel(name: "sss", imageName: "1", detail: "ssssss", price: 21.0, category: categories[3], stock: stocks),
+            ProductModel(name: "sss", imageName: "2", detail: "ssssss", price: 22.0, category: categories[2], stock: stocks),
         ]
         
     }

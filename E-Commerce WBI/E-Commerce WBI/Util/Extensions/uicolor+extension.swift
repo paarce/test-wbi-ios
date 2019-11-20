@@ -11,7 +11,7 @@ import UIKit
 
 extension UIColor {
     
-    func getRGBModel() -> ProductColorRGBModel {
+    var rgbModel : ProductColorRGBModel {
         
         var fRed : CGFloat = 0
         var fGreen : CGFloat = 0

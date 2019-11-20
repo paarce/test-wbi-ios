@@ -111,9 +111,12 @@ class ProductTableViewController: UITableViewController {
             .modelSelected(ProductModel.self)
             .subscribe({ value in
                 
-                print(value.element?.name ?? "Empty")
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProductDetailViewController") as? ProductDetailViewController{
+                   
+                    vc.data = value.element
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
                 
-                self.performSegue(withIdentifier: "showDetail", sender: self)
                 
             })
             .disposed(by: disposbag)
@@ -123,6 +126,7 @@ class ProductTableViewController: UITableViewController {
             .disposed(by: disposbag)
         
     }
+    
 
 }
 
