@@ -11,6 +11,10 @@ import UIKit
 
 extension UIColor {
     
+//    static var greenEco : UIColor {
+//        return UIColor.init(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
+//    }
+    
     var rgbModel : ProductColorRGBModel {
         
         var fRed : CGFloat = 0

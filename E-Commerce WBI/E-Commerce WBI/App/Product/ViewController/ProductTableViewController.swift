@@ -62,7 +62,7 @@ class ProductTableViewController: UITableViewController {
     }
     
     
-    func loadCategoriesUI(collectionView : UICollectionView){
+    private func loadCategoriesUI(collectionView : UICollectionView){
         
         self.categoriesCollectionView = collectionView
         self.categoriesCollectionView!.dataSource = nil
@@ -93,7 +93,7 @@ class ProductTableViewController: UITableViewController {
         
     }
     
-    func loadProductsUI(collectionView : UICollectionView){
+    private func loadProductsUI(collectionView : UICollectionView){
         
         self.productsCollectionView = collectionView
         self.productsCollectionView!.dataSource = nil

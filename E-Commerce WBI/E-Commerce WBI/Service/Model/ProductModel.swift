@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 struct ProductModel  {
     
@@ -18,6 +18,15 @@ struct ProductModel  {
     let category : CategoryModel
     let stock : [StockModel]
 
+    func hasStock( size: SizeEnum? = nil) -> Bool {
+        
+        if let size = size {
+            return (self.stock.map { $0.size == size }).count > 0
+        }
+        
+        return !self.stock.isEmpty
+    }
+    
 }
 
 
@@ -37,6 +46,10 @@ struct ProductColorRGBModel  {
     let g : Float
     let b : Float
     
+    func getColor() -> UIColor {
+        return UIColor(red: CGFloat(r/255.0), green: CGFloat(g/255.0), blue: CGFloat(b/255.0), alpha: 0.8)
+    }
+    
 }
 
 
@@ -48,9 +61,10 @@ struct CategoryModel  {
 }
 
 
-enum SizeEnum : String {
+enum SizeEnum : String{
     case s = "S"
     case m = "M"
     case l = "L"
     case xl = "XL"
+    
 }

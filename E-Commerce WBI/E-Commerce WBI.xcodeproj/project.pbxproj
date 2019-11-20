@@ -28,6 +28,7 @@
 		8622F52A2384346A00E067D8 /* float+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F5292384346A00E067D8 /* float+extension.swift */; };
 		8622F52C2384382C00E067D8 /* uidevice+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F52B2384382C00E067D8 /* uidevice+extension.swift */; };
 		8622F52E23844E0F00E067D8 /* navigationcontroller+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F52D23844E0F00E067D8 /* navigationcontroller+extension.swift */; };
+		8622F5302385E95300E067D8 /* array+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F52F2385E95300E067D8 /* array+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		8622F5292384346A00E067D8 /* float+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "float+extension.swift"; sourceTree = "<group>"; };
 		8622F52B2384382C00E067D8 /* uidevice+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "uidevice+extension.swift"; sourceTree = "<group>"; };
 		8622F52D23844E0F00E067D8 /* navigationcontroller+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "navigationcontroller+extension.swift"; sourceTree = "<group>"; };
+		8622F52F2385E95300E067D8 /* array+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "array+extension.swift"; sourceTree = "<group>"; };
 		A4D5B643B250EEC94848EF24 /* Pods-E-Commerce WBI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-Commerce WBI.debug.xcconfig"; path = "Target Support Files/Pods-E-Commerce WBI/Pods-E-Commerce WBI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -291,6 +293,7 @@
 				8622F5292384346A00E067D8 /* float+extension.swift */,
 				8622F52B2384382C00E067D8 /* uidevice+extension.swift */,
 				8622F52D23844E0F00E067D8 /* navigationcontroller+extension.swift */,
+				8622F52F2385E95300E067D8 /* array+extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				8622F52E23844E0F00E067D8 /* navigationcontroller+extension.swift in Sources */,
 				8622F523238064F000E067D8 /* Const.swift in Sources */,
 				8622F52C2384382C00E067D8 /* uidevice+extension.swift in Sources */,
+				8622F5302385E95300E067D8 /* array+extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
