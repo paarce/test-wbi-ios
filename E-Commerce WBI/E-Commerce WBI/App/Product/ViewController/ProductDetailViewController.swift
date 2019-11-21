@@ -13,6 +13,7 @@ import RxCocoa
 class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var sizeCollectionView: UICollectionView!
     @IBOutlet weak var colorCollectionView: UICollectionView!
@@ -53,6 +54,7 @@ class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
         if let data = self.data {
             self.nameLabel.text = data.name
             self.priceLabel.text = "$\(data.price?.dollar ?? "$")"
+            self.productImageView.image = UIImage(named: data.imageName != nil ? "product\(data.imageName!)" : "avatar" )
             
             self.loadParametersUI()
         }
