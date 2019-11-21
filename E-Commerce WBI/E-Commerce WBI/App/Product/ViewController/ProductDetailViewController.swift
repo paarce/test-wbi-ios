@@ -61,7 +61,7 @@ class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
         if let data = self.data {
             
             let sizeItems = Observable.just((data.stock.map{ $0.size }).removingDuplicates())
-            let colorItems = Observable.just((data.stock.map{ $0.color }))
+            let colorItems = Observable.just(data.stock.map{ $0.color })
             
             self.sizeCollectionView.dataSource = nil
             sizeItems.bind(to: self.sizeCollectionView.rx.items(cellIdentifier: "sizeCell", cellType: UICollectionViewCell.self)) { row, model, cell in
@@ -70,6 +70,8 @@ class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
                     lab.text = model.rawValue
                     lab.layer.masksToBounds = true
                     lab.layer.cornerRadius = 4
+                    lab.layer.borderColor = UIColor.lightGray.cgColor
+                    lab.layer.borderWidth = 1.0
                 }
                 
                 cell.selectedBackgroundView?.backgroundColor = .green
@@ -84,6 +86,8 @@ class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
                     
                     lab.layer.masksToBounds = true
                     lab.layer.cornerRadius = lab.frame.width/2
+                    lab.layer.borderColor = UIColor.lightGray.cgColor
+                    lab.layer.borderWidth = 1.0
                 }
                 
                 cell.selectedBackgroundView?.backgroundColor = .green
@@ -113,6 +117,24 @@ class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
     // MARK: - Buttons
     
     @IBAction func onAdd(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Added to Cart", message: "Do you want to continue shopping?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Go Cart", style: .default){ (action) in
+            
+            let storyboard = UIStoryboard(name: "Cart", bundle: nil)
+            if  let vc = storyboard.instantiateViewController(withIdentifier: "CartListViewController") as? CartListViewController{
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        })
+            
+        alert.addAction(UIAlertAction(title: "Back List", style: .cancel) { (action) in
+            self.navigationController?.popViewController(animated: false)
+        })
+        
+        self.present(alert, animated: true)
+        
     }
     
     // MARK: - ScrollViewDelegate
