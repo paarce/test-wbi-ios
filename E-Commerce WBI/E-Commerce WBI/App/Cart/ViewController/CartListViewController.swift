@@ -20,12 +20,14 @@ class CartListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        data.append(CartItem(productId: 1, productName: "sss", count: 1, size: .m))
+        //data.append(CartItem(productId: 1, productName: "sss",  productImage: "sss", count: 1, size: .m))
         
         self.loadCartItems()
     }
     
     func loadCartItems() {
+        
+        ManagerRLM.sharedInstance.retieveList(CartItemRLM.self, model: &self.data)
         
         let itemss = Observable.just(self.data)
         
@@ -59,20 +61,3 @@ class CartListViewController: UIViewController {
     }
     
 }
-
-
-//extension CartListViewController: UITableViewFlo {
-//
-//
-//}
-
-struct CartItem {
-    
-    let productId : Int
-    let productName : String
-    let count : Int
-    let size : SizeEnum
-    
-}
-
-

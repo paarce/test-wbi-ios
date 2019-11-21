@@ -17,7 +17,7 @@ struct StockModel  {
     
 }
 
-enum SizeEnum : String{
+enum SizeEnum : String, CaseIterable{
     case s = "S"
     case m = "M"
     case l = "L"

@@ -175,7 +175,14 @@
                             <outlet property="delegate" destination="CRb-UI-NxE" id="zpk-e5-caM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="luW-0z-LLH"/>
+                    <navigationItem key="navigationItem" id="luW-0z-LLH">
+                        <barButtonItem key="rightBarButtonItem" title="Cart" id="hY3-L3-R7u">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onCart:" destination="CRb-UI-NxE" id="UbX-Ss-Rhv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="A2K-Tg-ntr" kind="show" identifier="showDetail" id="TJe-bQ-fi1"/>
                     </connections>
@@ -408,7 +415,7 @@ If you read it until here, congratulations! If you liked the post and by any cha
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocC-d5-rID" customClass="EcoButton" customModule="E_Commerce_WBI" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocC-d5-rID" customClass="EcoButton" customModule="E_Commerce_WBI" customModuleProvider="target">
                                         <rect key="frame" x="255" y="21" width="137" height="38"/>
                                         <color key="backgroundColor" name="greenEco"/>
                                         <constraints>
@@ -452,6 +459,7 @@ If you read it until here, congratulations! If you liked the post and by any cha
                     </view>
                     <navigationItem key="navigationItem" id="L32-mR-CXP"/>
                     <connections>
+                        <outlet property="addButton" destination="ocC-d5-rID" id="ApR-xu-4mw"/>
                         <outlet property="colorCollectionView" destination="xRI-hl-dQe" id="zKR-96-541"/>
                         <outlet property="nameLabel" destination="TKv-Lw-W6m" id="MBg-hJ-wau"/>
                         <outlet property="priceLabel" destination="ay4-uR-WrC" id="rdy-Uw-6vK"/>

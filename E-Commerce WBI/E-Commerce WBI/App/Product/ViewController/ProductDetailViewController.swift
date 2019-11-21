@@ -17,10 +17,14 @@ class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var sizeCollectionView: UICollectionView!
     @IBOutlet weak var colorCollectionView: UICollectionView!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var addButton: UIButton!
     
     var isVisibleNavigation = true
     
     var data : ProductModel?
+    
+    var sizeSelected : SizeEnum?
+    var colorSelected : ProductColorRGBModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,47 +60,6 @@ class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
-    private func loadParametersUI(){
-        
-        if let data = self.data {
-            
-            let sizeItems = Observable.just((data.stock.map{ $0.size }).removingDuplicates())
-            let colorItems = Observable.just(data.stock.map{ $0.color })
-            
-            self.sizeCollectionView.dataSource = nil
-            sizeItems.bind(to: self.sizeCollectionView.rx.items(cellIdentifier: "sizeCell", cellType: UICollectionViewCell.self)) { row, model, cell in
-                
-                if let lab = cell.viewWithTag(1) as? UILabel{
-                    lab.text = model.rawValue
-                    lab.layer.masksToBounds = true
-                    lab.layer.cornerRadius = 4
-                    lab.layer.borderColor = UIColor.lightGray.cgColor
-                    lab.layer.borderWidth = 1.0
-                }
-                
-                cell.selectedBackgroundView?.backgroundColor = .green
-                
-                }.disposed(by: disposbag)
-            
-            self.colorCollectionView.dataSource = nil
-            colorItems.bind(to: self.colorCollectionView.rx.items(cellIdentifier: "colorCell", cellType: UICollectionViewCell.self)) { row, model, cell in
-                
-                if let lab = cell.viewWithTag(1) as? UILabel{
-                    lab.backgroundColor = model.getColor()
-                    
-                    lab.layer.masksToBounds = true
-                    lab.layer.cornerRadius = lab.frame.width/2
-                    lab.layer.borderColor = UIColor.lightGray.cgColor
-                    lab.layer.borderWidth = 1.0
-                }
-                
-                cell.selectedBackgroundView?.backgroundColor = .green
-                
-                }.disposed(by: disposbag)
-            
-        }
-    }
-    
     private func setBackgraoundNavigation( visible : Bool ) {
         
         if (visible && !isVisibleNavigation) || (!visible && isVisibleNavigation) { return }
@@ -118,22 +81,37 @@ class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func onAdd(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Added to Cart", message: "Do you want to continue shopping?", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Go Cart", style: .default){ (action) in
+        if let data = self.data, let colorSelected = self.colorSelected, let sizeSelected = self.sizeSelected {
             
-            let storyboard = UIStoryboard(name: "Cart", bundle: nil)
-            if  let vc = storyboard.instantiateViewController(withIdentifier: "CartListViewController") as? CartListViewController{
-                
-                self.navigationController?.pushViewController(vc, animated: true)
+            var aux : CartItem?
+            var item = CartItem(product: data, count: 1, size: sizeSelected, color: colorSelected)
+            
+            ManagerRLM.sharedInstance.retieve(CartItemRLM.self, model: &aux, id: "\(data.id)")
+            
+            if let aux = aux {
+                if aux.size == item.size {
+                    item.count += aux.count
+                }
             }
-        })
+            ManagerRLM.sharedInstance.save(item)
             
-        alert.addAction(UIAlertAction(title: "Back List", style: .cancel) { (action) in
-            self.navigationController?.popViewController(animated: false)
-        })
-        
-        self.present(alert, animated: true)
+            let alert = UIAlertController(title: "Added to Cart", message: "Do you want to continue shopping?", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Go Cart", style: .default){ (action) in
+                
+                let storyboard = UIStoryboard(name: "Cart", bundle: nil)
+                if  let vc = storyboard.instantiateViewController(withIdentifier: "CartListViewController") as? CartListViewController{
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            })
+            
+            alert.addAction(UIAlertAction(title: "Back List", style: .cancel) { (action) in
+                self.navigationController?.popViewController(animated: false)
+            })
+            
+            self.present(alert, animated: true)
+        }
         
     }
     
@@ -144,7 +122,73 @@ class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
         self.setBackgraoundNavigation( visible : scrollView.bounds.contains(nameLabel.frame) )
        
     }
-    
-    
+}
 
+
+extension ProductDetailViewController {
+    
+    
+    private func loadParametersUI(){
+        
+        if let data = self.data {
+            
+            let sizeItems = Observable.just((data.stock.map{ $0.size }).removingDuplicates())
+            let colorItems = Observable.just((data.stock.map{ $0.color }).removingDuplicates())
+            
+            self.sizeCollectionView.dataSource = nil
+            sizeItems.bind(to: self.sizeCollectionView.rx.items(cellIdentifier: "sizeCell", cellType: UICollectionViewCell.self)) { row, model, cell in
+                
+                if let lab = cell.viewWithTag(1) as? UILabel{
+                    lab.text = model.rawValue
+                    lab.layer.masksToBounds = true
+                    lab.layer.cornerRadius = 4
+                    lab.layer.borderColor = UIColor.lightGray.cgColor
+                    lab.layer.borderWidth = 1.0
+                    
+                    let isSelected = self.sizeSelected != nil && self.sizeSelected == model
+                    
+                    lab.backgroundColor = isSelected ? .darkGray : .white
+                    lab.textColor = isSelected ? .white : .darkGray
+                    
+                }
+                
+                }.disposed(by: disposbag)
+            
+            self.sizeCollectionView.rx
+                .modelSelected(SizeEnum.self)
+                .subscribe({ value in
+                    self.sizeSelected = value.element
+                    self.addButton.isEnabled = self.colorSelected != nil && self.sizeSelected != nil 
+                    self.sizeCollectionView.reloadData()
+                })
+                .disposed(by: disposbag)
+            
+            self.colorCollectionView.dataSource = nil
+            colorItems.bind(to: self.colorCollectionView.rx.items(cellIdentifier: "colorCell", cellType: UICollectionViewCell.self)) { row, model, cell in
+                
+                if let lab = cell.viewWithTag(1) as? UILabel{
+                    lab.backgroundColor = model.getColor()
+                    
+                    lab.layer.masksToBounds = true
+                    lab.layer.cornerRadius = lab.frame.width/2
+                    let isSelected = self.colorSelected != nil && self.colorSelected! == model
+                    lab.layer.borderColor = isSelected ? UIColor.lightGray.cgColor : UIColor.darkGray.cgColor
+                    lab.layer.borderWidth = isSelected ? 4.0 : 1.0
+                }
+                
+                cell.selectedBackgroundView?.backgroundColor = .green
+                
+                }.disposed(by: disposbag)
+            
+            self.colorCollectionView.rx
+                .modelSelected(ProductColorRGBModel.self)
+                .subscribe({ value in
+                    self.colorSelected = value.element
+                    self.addButton.isEnabled = self.colorSelected != nil && self.sizeSelected != nil
+                    self.colorCollectionView.reloadData()
+                })
+                .disposed(by: disposbag)
+            
+        }
+    }
 }

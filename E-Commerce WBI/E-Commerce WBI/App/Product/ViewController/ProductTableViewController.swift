@@ -127,7 +127,18 @@ class ProductTableViewController: UITableViewController {
         
     }
     
-
+    // MARK: - Buttons
+    
+    @IBAction func onCart(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Cart", bundle: nil)
+        if  let vc = storyboard.instantiateViewController(withIdentifier: "CartListViewController") as? CartListViewController{
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
+    
 }
 
 extension ProductTableViewController : UICollectionViewDelegateFlowLayout {
