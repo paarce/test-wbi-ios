@@ -30,7 +30,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="127.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1zk-ob-t29">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="1zk-ob-t29">
                                                     <rect key="frame" x="10" y="11" width="106" height="106"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="1zk-ob-t29" secondAttribute="height" multiplier="1:1" id="hVZ-Kf-MtD"/>
@@ -130,6 +130,7 @@
                                                 <constraint firstItem="duk-hB-Xwa" firstAttribute="top" secondItem="g5i-YF-BLa" secondAttribute="bottom" constant="6" id="vCD-VC-wNq"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="colorLabel" destination="N4r-FN-e01" id="5IL-LA-GbB"/>
                                             <outlet property="counterView" destination="duk-hB-Xwa" id="AXe-yo-05X"/>
@@ -293,6 +294,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="avatar" width="375" height="477"/>
         <namedColor name="greenEco">
             <color red="0.0" green="0.77254901960784317" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

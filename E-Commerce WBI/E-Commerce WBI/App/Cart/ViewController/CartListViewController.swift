@@ -10,8 +10,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class CartListViewController: UIViewController {
-
+class CartListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var totalPriceLabel: UILabel!
     
@@ -20,40 +20,41 @@ class CartListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //data.append(CartItem(productId: 1, productName: "sss",  productImage: "sss", count: 1, size: .m))
+        tableView.rowHeight = 128
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
         self.loadCartItems()
     }
+    
     
     func loadCartItems() {
         
         ManagerRLM.sharedInstance.retieveList(CartItemRLM.self, model: &self.data)
         
-        let itemss = Observable.just(self.data)
-        
-        tableView.register(CartItemTableViewCell.self, forCellReuseIdentifier: "cartCell")
-     
-        itemss.bind(to: self.tableView.rx.items(cellIdentifier: "cartCell", cellType: CartItemTableViewCell.self)) { row, model, cell in
-            
-            cell.data = model
-
-            }.disposed(by: disposbag)
-        
-        
-//        self.productsCollectionView!.rx
-//            .modelSelected(ProductModel.self)
-//            .subscribe({ value in
+//        let itemss = Observable.just(self.data)
+//        tableView.delegate = self
+//        tableView.register(CartItemTableViewCell.self, forCellReuseIdentifier: "cartCell")
 //
-//                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProductDetailViewController") as? ProductDetailViewController{
+//        itemss.bind(to: self.tableView.rx.items(cellIdentifier: "cartCell", cellType: CartItemTableViewCell.self)) { row, model, cell in
 //
-//                    vc.data = value.element
-//                    self.navigationController?.pushViewController(vc, animated: true)
-//                }
+//            cell.data = model
 //
+//            }.disposed(by: disposbag)
 //
-//            })
-//            .disposed(by: disposbag)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell") as? CartItemTableViewCell
         
+        cell?.data = data[indexPath.row]
+        
+        return cell!
     }
     
     @IBAction func onCheckout(_ sender: Any) {

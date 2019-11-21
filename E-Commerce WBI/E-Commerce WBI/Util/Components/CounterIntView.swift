@@ -14,6 +14,11 @@ class CounterIntView: UIView {
     var minusButton : UIButton?
     var plusButton : UIButton?
     var counterLabel : UILabel?
+    var count : Int = 1 {
+        didSet{
+            self.counterLabel?.text = "\(self.count)"
+        }
+    }
     
     override func draw(_ rect: CGRect) {
         
@@ -23,10 +28,16 @@ class CounterIntView: UIView {
             self.plusButton = plus
             self.counterLabel = counter
             
+            
+            self.minusButton!.addTarget(self, action: #selector(CounterIntView.actionWithParam(sender:)), for: .touchUpInside)
+            
         }
         
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 4
     }
     
+    @objc func actionWithParam(sender: UIButton){
+        //...
+    }
 }
