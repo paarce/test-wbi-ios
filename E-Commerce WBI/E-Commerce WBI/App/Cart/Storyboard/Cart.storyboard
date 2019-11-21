@@ -206,6 +206,91 @@
             </objects>
             <point key="canvasLocation" x="100.00000000000001" y="-105.13392857142857"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="kR2-QE-XH0">
+            <objects>
+                <viewController id="zAF-gh-vmE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dac-WN-lCl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hi-lp-gpK">
+                                <rect key="frame" x="0.0" y="352.5" width="414" height="201"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔︎" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NR0-Da-Izb">
+                                        <rect key="frame" x="143.5" y="8" width="127" height="112"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="NR0-Da-Izb" secondAttribute="height" multiplier="127:112" id="6qc-ct-kDa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="120"/>
+                                        <color key="textColor" name="greenEco"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Felicitaciones! Compra realizada" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8j1-dY-xhP">
+                                        <rect key="frame" x="83" y="128" width="248" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cod. 000023232" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlG-At-doP">
+                                        <rect key="frame" x="124.5" y="157" width="165" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="NR0-Da-Izb" secondAttribute="bottom" constant="81" id="6U1-tD-pjl"/>
+                                    <constraint firstItem="NR0-Da-Izb" firstAttribute="centerX" secondItem="0hi-lp-gpK" secondAttribute="centerX" id="7l7-uQ-gMg"/>
+                                    <constraint firstAttribute="bottom" secondItem="KlG-At-doP" secondAttribute="bottom" constant="20" id="EGO-57-7Mv"/>
+                                    <constraint firstAttribute="bottom" secondItem="8j1-dY-xhP" secondAttribute="bottom" constant="52" id="OXp-dB-EV9"/>
+                                    <constraint firstAttribute="height" constant="201" id="RzU-Wy-hlB"/>
+                                    <constraint firstItem="KlG-At-doP" firstAttribute="centerX" secondItem="0hi-lp-gpK" secondAttribute="centerX" id="cRh-5H-auv"/>
+                                    <constraint firstItem="NR0-Da-Izb" firstAttribute="top" secondItem="0hi-lp-gpK" secondAttribute="top" constant="8" id="ePA-wf-gcZ"/>
+                                    <constraint firstItem="8j1-dY-xhP" firstAttribute="centerX" secondItem="0hi-lp-gpK" secondAttribute="centerX" id="ie0-j4-R4p"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jy7-tt-cOl" customClass="EcoButton" customModule="E_Commerce_WBI" customModuleProvider="target">
+                                <rect key="frame" x="138.5" y="824" width="137" height="38"/>
+                                <color key="backgroundColor" name="greenEco"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="137" id="hJG-Ot-kmg"/>
+                                    <constraint firstAttribute="height" constant="38" id="s1y-bz-ezC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="GO PRODUCTS">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCheckout:" destination="2Al-Uc-Rdp" eventType="touchUpInside" id="FQW-fC-wUB"/>
+                                    <segue destination="TzG-QY-VVW" kind="showDetail" id="MUk-ma-Edd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0hi-lp-gpK" firstAttribute="centerY" secondItem="Kfk-0c-GyO" secondAttribute="centerY" id="XPv-g2-9Ox"/>
+                            <constraint firstItem="0hi-lp-gpK" firstAttribute="width" secondItem="dac-WN-lCl" secondAttribute="width" id="ZLb-wj-xGN"/>
+                            <constraint firstItem="0hi-lp-gpK" firstAttribute="centerX" secondItem="Kfk-0c-GyO" secondAttribute="centerX" id="ccu-L0-Dnq"/>
+                            <constraint firstItem="Kfk-0c-GyO" firstAttribute="bottom" secondItem="jy7-tt-cOl" secondAttribute="bottom" id="pUN-sb-vlJ"/>
+                            <constraint firstItem="jy7-tt-cOl" firstAttribute="centerX" secondItem="Kfk-0c-GyO" secondAttribute="centerX" id="t0K-0X-es8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kfk-0c-GyO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tkq-Vf-Slj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="882.60869565217399" y="-106.47321428571428"/>
+        </scene>
+        <!--Auth-->
+        <scene sceneID="eSF-2t-RWC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Auth" id="TzG-QY-VVW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h4g-Ap-ukX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902" y="291"/>
+        </scene>
     </scenes>
     <resources>
         <namedColor name="greenEco">
