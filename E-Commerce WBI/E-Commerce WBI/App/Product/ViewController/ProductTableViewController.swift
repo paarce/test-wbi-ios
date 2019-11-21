@@ -153,11 +153,7 @@ class ProductTableViewController: UITableViewController {
         
         alert.addAction(UIAlertAction(title: "Log Out", style: .default){ (action) in
             
-//            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-//            if  let vc = storyboard.instantiateInitialViewController(){
-//
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }
+            defaults.removeObject(forKey: KeysEnum.user_email.rawValue)
             
             self.performSegue(withIdentifier: "showAuth", sender: self)
         })
@@ -181,7 +177,7 @@ extension ProductTableViewController : UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10.0
+        return 5.0
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

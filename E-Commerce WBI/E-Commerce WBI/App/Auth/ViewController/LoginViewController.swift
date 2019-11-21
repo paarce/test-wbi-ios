@@ -21,19 +21,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         self.configUI()
     }
+
     
     // MARK: - Config UI
     
     func configUI() {
         
-        self.emailTextField.delegate = self
-        self.passwordTextField.delegate = self
-        
-        self.loginVM.erroMessage.bind { [weak self] message in
-            self?.errorLabel.text = message
-            self?.errorLabel.adjustsFontSizeToFitWidth = true
-            self?.removeLoading()
-        }.disposed(by: disposbag)
+        if let _ = defaults.string(forKey: KeysEnum.user_email.rawValue) {
+            
+            let storyboard = UIStoryboard(name: "Product", bundle: nil)
+            if  let vc = storyboard.instantiateInitialViewController(){
+                
+               self.navigationController?.pushViewController(vc, animated: false)
+            }
+            
+        }else{
+            self.navigationController?.clearBrackgorund()
+            self.emailTextField.delegate = self
+            self.passwordTextField.delegate = self
+            
+            self.loginVM.erroMessage.bind { [weak self] message in
+                self?.errorLabel.text = message
+                self?.errorLabel.adjustsFontSizeToFitWidth = true
+                self?.removeLoading()
+            }.disposed(by: disposbag)
+        }
     }
     
     func getUnderline(from field : UITextField) -> UILabel? {

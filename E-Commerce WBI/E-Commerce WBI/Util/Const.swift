@@ -13,5 +13,9 @@ let deviceUID = UIDevice.current.identifierForVendor!.uuidString
 let disposbag = DisposeBag()
 let defaults = UserDefaults.standard
 
+enum KeysEnum : String {
+    
+    case user_email = "user_email"
+}
 
 let  regexEmail = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"

@@ -16,6 +16,7 @@ class LoginViewModel {
     
     func perfomLogin( email : String?, password : String? ,  completion : @escaping () -> () ){
         
+        defaults.set(email, forKey: KeysEnum.user_email.rawValue)
         completion()
         
     }

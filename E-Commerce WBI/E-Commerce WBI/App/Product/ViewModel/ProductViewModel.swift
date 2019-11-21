@@ -29,9 +29,7 @@ class ProductViewModel {
     var countItemInRow : CGFloat {
         
         switch UIDevice.current.screenType {
-        case .iPhones_5_5s_5c_SE, .iPhones_4_4S:
-            return 1
-        case .iPhones_6_6s_7_8:
+        case .iPhones_5_5s_5c_SE, .iPhones_4_4S, .iPhones_6_6s_7_8:
             return 2
         default:
             return 3
