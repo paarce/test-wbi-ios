@@ -8,17 +8,20 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ProductViewModel {
     
-    var products : [ProductModel] = []
+    var allProducts : [ProductModel] = []
     var categories : [CategoryModel] = []
+    let products: BehaviorRelay<[ProductModel]> = BehaviorRelay(value: [])
     
     
     let productCellHeight           : CGFloat = 256.0
     var productEntireCellHeight     : CGFloat {
         
-        let countRows = self.products.count % 2 == 1 ? self.products.count + 1 : self.products.count
+        let countRows = self.products.value.count % 2 == 1 ? self.products.value.count + 1 : self.products.value.count
         
         return self.productCellHeight * ( CGFloat(countRows) / self.countItemInRow) + CGFloat(countRows * 10)
     }
@@ -45,6 +48,7 @@ class ProductViewModel {
     func loadCategories() {
         
         self.categories = [
+            CategoryModel(id: -1, name: "All", ini: "ALL"),
             CategoryModel(id: 1, name: "Pants", ini: "PA"),
             CategoryModel(id: 2, name: "Shoes", ini: "SH"),
             CategoryModel(id: 3, name: "T-Shirts", ini: "TS"),
@@ -57,7 +61,7 @@ class ProductViewModel {
     
     func loadProducts() {
         
-        self.products = [
+        self.allProducts = [
             ProductModel(id: 1,name: "sss", imageName: "1", detail: "ssssss", price: 20.0, category: categories[0], stock: stocks),
             ProductModel(id: 2,name: "sss", imageName: "3", detail: "ssssss", price: 20.0, category: categories[2], stock: stocks),
             ProductModel(id: 3,name: "sss", imageName: "4", detail: "ssssss", price: 30.0, category: categories[4], stock: stocks),
@@ -66,6 +70,8 @@ class ProductViewModel {
             ProductModel(id: 6,name: "sss", imageName: "1", detail: "ssssss", price: 21.0, category: categories[3], stock: stocks),
             ProductModel(id: 7,name: "sss", imageName: "2", detail: "ssssss", price: 22.0, category: categories[2], stock: stocks),
         ]
+        
+        self.products.accept(self.allProducts)
         
     }
     

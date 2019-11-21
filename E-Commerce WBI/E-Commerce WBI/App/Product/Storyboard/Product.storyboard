@@ -46,7 +46,6 @@
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcn-eo-f5X">
                                                                 <rect key="frame" x="9" y="0.0" width="50" height="50"/>
-                                                                <color key="backgroundColor" name="greenEco"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="Hk2-Ol-lpI"/>
                                                                     <constraint firstAttribute="width" constant="50" id="cAZ-Nj-oU2"/>

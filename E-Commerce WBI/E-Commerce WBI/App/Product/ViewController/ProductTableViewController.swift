@@ -18,6 +18,8 @@ class ProductTableViewController: UITableViewController {
     var categoriesCollectionView    : UICollectionView?
     var productsCollectionView      : UICollectionView?
     
+    var categorySelected = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,9 +74,10 @@ class ProductTableViewController: UITableViewController {
         items.bind(to: self.categoriesCollectionView!.rx.items(cellIdentifier: "categoryCell", cellType: UICollectionViewCell.self)) { row, model, cell in
             
             if let avatar = cell.viewWithTag(1) as? UILabel, let name = cell.viewWithTag(2) as? UILabel {
-                avatar.text = model.ini
                 avatar.layer.masksToBounds = true
                 avatar.layer.cornerRadius = avatar.frame.width/2
+                avatar.text = model.ini
+                avatar.backgroundColor = self.categorySelected == model.id ? .darkGray : .greenEco
                 
                 name.text = model.name
             }
@@ -86,8 +89,9 @@ class ProductTableViewController: UITableViewController {
         self.categoriesCollectionView!.rx
             .modelSelected(CategoryModel.self)
             .subscribe({ value in
-
-                print(value.element?.name ?? "Empty")
+                self.categorySelected = value.element?.id ?? -1
+                self.categoriesCollectionView!.reloadData()
+                self.reloadProducts()
             })
             .disposed(by: disposbag)
         
@@ -98,9 +102,7 @@ class ProductTableViewController: UITableViewController {
         self.productsCollectionView = collectionView
         self.productsCollectionView!.dataSource = nil
         
-        let items = Observable.just(self.productVM.products)
-        
-        items.bind(to: self.productsCollectionView!.rx.items(cellIdentifier: "productCell", cellType: ProductCollectionViewCell.self)) { row, model, cell in
+        self.productVM.products.bind(to: self.productsCollectionView!.rx.items(cellIdentifier: "productCell", cellType: ProductCollectionViewCell.self)) { row, model, cell in
             
             cell.data = model
             
@@ -116,8 +118,6 @@ class ProductTableViewController: UITableViewController {
                     vc.data = value.element
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
-                
-                
             })
             .disposed(by: disposbag)
         
@@ -125,6 +125,13 @@ class ProductTableViewController: UITableViewController {
             .setDelegate(self)
             .disposed(by: disposbag)
         
+    }
+    
+    func reloadProducts() {
+        
+        let filter = self.categorySelected == -1 ? self.productVM.allProducts : self.productVM.allProducts.filter { $0.category.id == self.categorySelected }
+       
+        self.productVM.products.accept( filter )
     }
     
     // MARK: - Buttons
