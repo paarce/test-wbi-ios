@@ -146,6 +146,30 @@ class ProductTableViewController: UITableViewController {
         
     }
     
+    @IBAction func onLogOut(_ sender: Any) {
+        
+        
+        let alert = UIAlertController(title: "Log Out", message: "Are you sure you want to leave?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Log Out", style: .default){ (action) in
+            
+//            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+//            if  let vc = storyboard.instantiateInitialViewController(){
+//
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            }
+            
+            self.performSegue(withIdentifier: "showAuth", sender: self)
+        })
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            self.navigationController?.popViewController(animated: false)
+        })
+        
+        self.present(alert, animated: true)
+        
+    }
+    
 }
 
 extension ProductTableViewController : UICollectionViewDelegateFlowLayout {

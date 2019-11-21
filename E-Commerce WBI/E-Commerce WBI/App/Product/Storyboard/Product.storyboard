@@ -11,6 +11,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Auth-->
+        <scene sceneID="hYE-im-f1C">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Auth" id="PV8-vk-QlQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w8n-fc-pha" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3262" y="-338"/>
+        </scene>
         <!--E-Commerce-->
         <scene sceneID="vFH-1s-b9r">
             <objects>
@@ -175,6 +183,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="E-Commerce" id="luW-0z-LLH">
+                        <barButtonItem key="leftBarButtonItem" title="Log out" style="plain" id="E9t-zf-cjp">
+                            <connections>
+                                <action selector="onLogOut:" destination="CRb-UI-NxE" id="WTg-WO-bKy"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="🛒" id="hY3-L3-R7u">
                             <inset key="imageInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                             <inset key="landscapeImageInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
@@ -186,6 +199,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="A2K-Tg-ntr" kind="show" identifier="showDetail" id="TJe-bQ-fi1"/>
+                        <segue destination="PV8-vk-QlQ" kind="showDetail" identifier="showAuth" id="uU7-9t-ybz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m29-78-Hu4" userLabel="First Responder" sceneMemberID="firstResponder"/>

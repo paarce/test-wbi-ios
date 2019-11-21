@@ -9,6 +9,7 @@ target 'E-Commerce WBI' do
   pod 'RxCocoa',    '~> 4.0'
   pod 'RealmSwift'
   pod 'IQKeyboardManagerSwift'
+  pod 'Toast-Swift', '~> 5.0.0'
 
   target 'E-Commerce WBITests' do
     inherit! :search_paths

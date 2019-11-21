@@ -40,18 +40,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YpP-mF-ixl">
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YpP-mF-ixl">
                                         <rect key="frame" x="8" y="116" width="319" height="18"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOg-GJ-lqh">
-                                        <rect key="frame" x="8" y="135" width="319" height="2"/>
-                                        <color key="backgroundColor" name="greenEco"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOg-GJ-lqh">
+                                        <rect key="frame" x="8" y="137" width="319" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="2" id="Age-iz-X8L"/>
+                                            <constraint firstAttribute="height" constant="1" id="Age-iz-X8L"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -63,18 +63,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PNp-5v-BbB">
+                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PNp-5v-BbB">
                                         <rect key="frame" x="8" y="185" width="319" height="18"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fe-Cf-p8M">
-                                        <rect key="frame" x="8" y="204" width="319" height="2"/>
-                                        <color key="backgroundColor" name="greenEco"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="12" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fe-Cf-p8M">
+                                        <rect key="frame" x="8" y="206" width="319" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="2" id="4Ul-gF-6qO"/>
+                                            <constraint firstAttribute="height" constant="1" id="4Ul-gF-6qO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -92,10 +92,13 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="TzC-UT-fab"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="SIGN IN">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onSigin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Ta-Rz-PDp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -110,7 +113,7 @@
                                     <constraint firstItem="YpP-mF-ixl" firstAttribute="leading" secondItem="Sbv-ta-Fa0" secondAttribute="leading" constant="8" id="HEi-7b-WuN"/>
                                     <constraint firstItem="PNp-5v-BbB" firstAttribute="leading" secondItem="YpP-mF-ixl" secondAttribute="leading" id="Iog-FX-EYM"/>
                                     <constraint firstItem="vmn-ys-WT0" firstAttribute="centerX" secondItem="Sbv-ta-Fa0" secondAttribute="centerX" id="Iq8-Ny-XOH"/>
-                                    <constraint firstItem="iOg-GJ-lqh" firstAttribute="top" secondItem="YpP-mF-ixl" secondAttribute="bottom" constant="1" id="JxV-Hg-Ivh"/>
+                                    <constraint firstItem="iOg-GJ-lqh" firstAttribute="top" secondItem="YpP-mF-ixl" secondAttribute="bottom" constant="3" id="JxV-Hg-Ivh"/>
                                     <constraint firstItem="YaG-lf-9fL" firstAttribute="leading" secondItem="sWo-6i-Ij0" secondAttribute="leading" id="KVX-c2-N7E"/>
                                     <constraint firstAttribute="trailing" secondItem="TS4-cp-JRm" secondAttribute="trailing" constant="8" id="OJm-fh-iY9"/>
                                     <constraint firstItem="EB4-C9-v9K" firstAttribute="leading" secondItem="Sbv-ta-Fa0" secondAttribute="leading" constant="8" id="Vv2-jz-4My"/>
@@ -123,7 +126,7 @@
                                     <constraint firstAttribute="height" constant="327" id="itZ-gO-5My"/>
                                     <constraint firstItem="0fe-Cf-p8M" firstAttribute="trailing" secondItem="PNp-5v-BbB" secondAttribute="trailing" id="j4p-6j-zjJ"/>
                                     <constraint firstItem="YpP-mF-ixl" firstAttribute="top" secondItem="9kT-iD-PhJ" secondAttribute="bottom" constant="8" id="wax-sy-tX5"/>
-                                    <constraint firstItem="0fe-Cf-p8M" firstAttribute="top" secondItem="PNp-5v-BbB" secondAttribute="bottom" constant="1" id="wbU-rq-EUY"/>
+                                    <constraint firstItem="0fe-Cf-p8M" firstAttribute="top" secondItem="PNp-5v-BbB" secondAttribute="bottom" constant="3" id="wbU-rq-EUY"/>
                                     <constraint firstAttribute="bottom" secondItem="TS4-cp-JRm" secondAttribute="bottom" constant="7" id="wcT-Fc-j3V"/>
                                     <constraint firstItem="sWo-6i-Ij0" firstAttribute="top" secondItem="Sbv-ta-Fa0" secondAttribute="top" constant="8" id="x8t-Ag-5Uf"/>
                                 </constraints>
@@ -139,17 +142,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="XMV-O6-kZ0"/>
                     <connections>
-                        <segue destination="Exs-vQ-kUF" kind="show" id="uIz-lZ-iBh"/>
+                        <outlet property="emailTextField" destination="YpP-mF-ixl" id="emm-K9-aig"/>
+                        <outlet property="errorLabel" destination="vmn-ys-WT0" id="5Vy-ph-rK7"/>
+                        <outlet property="passwordTextField" destination="PNp-5v-BbB" id="sJ5-mI-aG5"/>
+                        <segue destination="Exs-vQ-kUF" kind="show" identifier="showProducts" id="uIz-lZ-iBh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1077.5999999999999" y="99.753694581280797"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--Product-->
         <scene sceneID="Ks3-XR-1gU">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Product" id="Exs-vQ-kUF" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="Product" storyboardName="Product" id="Exs-vQ-kUF" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lwk-4S-kJB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1886" y="100"/>
