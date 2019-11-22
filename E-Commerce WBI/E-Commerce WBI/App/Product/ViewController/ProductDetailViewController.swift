@@ -95,6 +95,7 @@ class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
                     item.count += aux.count
                 }
             }
+            
             ManagerRLM.sharedInstance.save(item)
             
             let alert = UIAlertController(title: "Added to Cart", message: "Do you want to continue shopping?", preferredStyle: .alert)

@@ -35,17 +35,6 @@ class CartListViewController: UIViewController, UITableViewDelegate, UITableView
         
         ManagerRLM.sharedInstance.retieveList(CartItemRLM.self, model: &self.data)
         self.isDataLoaded = true
-        
-//        let itemss = Observable.just(self.data)
-//        tableView.delegate = self
-//        tableView.register(CartItemTableViewCell.self, forCellReuseIdentifier: "cartCell")
-//
-//        itemss.bind(to: self.tableView.rx.items(cellIdentifier: "cartCell", cellType: CartItemTableViewCell.self)) { row, model, cell in
-//
-//            cell.data = model
-//
-//            }.disposed(by: disposbag)
-//
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,7 +53,14 @@ class CartListViewController: UIViewController, UITableViewDelegate, UITableView
     override func willMove(toParent parent: UIViewController?) {
     
         if self.isDataLoaded {
-            ManagerRLM.sharedInstance.saveList(self.data)
+            
+            let ceroItems = self.data.filter { $0.count == 0 }
+            
+            for item in ceroItems {
+                ManagerRLM.sharedInstance.remove(CartItemRLM.self, id: item.id)
+            }
+            
+            ManagerRLM.sharedInstance.saveList(self.data.filter { $0.count > 0 })
         }
     }
     

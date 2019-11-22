@@ -54,8 +54,8 @@ class CartItem : Persistable {
         
         let colorData = managedObject.color.components(separatedBy: "/")
         if colorData.count == 3 {
-            if let r = Float(colorData[0]), let g = Float(colorData[0]), let b = Float(colorData[0]) {
-                sB = r; sG = g; sG = b
+            if let r = Float(colorData[0]), let g = Float(colorData[1]), let b = Float(colorData[2]) {
+                sR = r; sG = g; sB = b
             }
         }
         

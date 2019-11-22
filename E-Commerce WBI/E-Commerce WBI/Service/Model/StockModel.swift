@@ -46,6 +46,12 @@ struct ProductColorRGBModel : Comparable, Hashable {
         return returnValue
     }
     
+    var description : String {
+        get {
+            return "\(r)/\(g)/\(b)`"
+        }
+    }
+    
 }
 
 enum SizeEnum : String, CaseIterable{
