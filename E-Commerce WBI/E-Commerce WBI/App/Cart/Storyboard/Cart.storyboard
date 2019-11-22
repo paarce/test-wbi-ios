@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pu4-5Z-i0g">
-                                <rect key="frame" x="0.0" y="44" width="414" height="738"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="694"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cartCell" rowHeight="128" id="DDe-o7-eyq" customClass="CartItemTableViewCell" customModule="E_Commerce_WBI" customModuleProvider="target">
@@ -73,19 +73,19 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="duk-hB-Xwa" customClass="CounterIntView" customModule="E_Commerce_WBI" customModuleProvider="target">
                                                     <rect key="frame" x="136" y="89" width="106" height="26"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6q-3g-2qS">
+                                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6q-3g-2qS">
                                                             <rect key="frame" x="0.0" y="0.0" width="32" height="26"/>
                                                             <state key="normal" title="-">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyB-rY-4UH">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyB-rY-4UH">
                                                             <rect key="frame" x="32" y="0.0" width="42" height="26"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8v-8W-1wJ">
+                                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8v-8W-1wJ">
                                                             <rect key="frame" x="74" y="0.0" width="32" height="26"/>
                                                             <state key="normal" title="+">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -130,7 +130,6 @@
                                                 <constraint firstItem="duk-hB-Xwa" firstAttribute="top" secondItem="g5i-YF-BLa" secondAttribute="bottom" constant="6" id="vCD-VC-wNq"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="colorLabel" destination="N4r-FN-e01" id="5IL-LA-GbB"/>
                                             <outlet property="counterView" destination="duk-hB-Xwa" id="AXe-yo-05X"/>
@@ -198,25 +197,43 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aIw-pA-9RF"/>
                     </view>
+                    <navigationItem key="navigationItem" id="pE6-K9-A59"/>
                     <connections>
                         <outlet property="tableView" destination="Pu4-5Z-i0g" id="k6j-lq-cqm"/>
                         <outlet property="totalPriceLabel" destination="QDs-eV-sB0" id="8sQ-e7-lyc"/>
+                        <segue destination="zAF-gh-vmE" kind="show" identifier="showCongratulations" id="3ik-xg-JXK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hjU-w6-rM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="100.00000000000001" y="-105.13392857142857"/>
+            <point key="canvasLocation" x="1010.144927536232" y="-105.13392857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--Congratulations View Controller-->
         <scene sceneID="kR2-QE-XH0">
             <objects>
-                <viewController id="zAF-gh-vmE" sceneMemberID="viewController">
+                <viewController id="zAF-gh-vmE" customClass="CongratulationsViewController" customModule="E_Commerce_WBI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dac-WN-lCl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jy7-tt-cOl" customClass="EcoButton" customModule="E_Commerce_WBI" customModuleProvider="target">
+                                <rect key="frame" x="138.5" y="824" width="137" height="38"/>
+                                <color key="backgroundColor" name="greenEco"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="137" id="hJG-Ot-kmg"/>
+                                    <constraint firstAttribute="height" constant="38" id="s1y-bz-ezC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="GO PRODUCTS">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCheckout:" destination="2Al-Uc-Rdp" eventType="touchUpInside" id="FQW-fC-wUB"/>
+                                    <action selector="onGoHome:" destination="zAF-gh-vmE" eventType="touchUpInside" id="nfc-i4-Vaz"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hi-lp-gpK">
-                                <rect key="frame" x="0.0" y="352.5" width="414" height="201"/>
+                                <rect key="frame" x="0.0" y="348" width="414" height="201"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔︎" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NR0-Da-Izb">
                                         <rect key="frame" x="143.5" y="8" width="127" height="112"/>
@@ -252,26 +269,10 @@
                                     <constraint firstItem="8j1-dY-xhP" firstAttribute="centerX" secondItem="0hi-lp-gpK" secondAttribute="centerX" id="ie0-j4-R4p"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jy7-tt-cOl" customClass="EcoButton" customModule="E_Commerce_WBI" customModuleProvider="target">
-                                <rect key="frame" x="138.5" y="824" width="137" height="38"/>
-                                <color key="backgroundColor" name="greenEco"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="137" id="hJG-Ot-kmg"/>
-                                    <constraint firstAttribute="height" constant="38" id="s1y-bz-ezC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="GO PRODUCTS">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="onCheckout:" destination="2Al-Uc-Rdp" eventType="touchUpInside" id="FQW-fC-wUB"/>
-                                    <segue destination="TzG-QY-VVW" kind="showDetail" id="MUk-ma-Edd"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0hi-lp-gpK" firstAttribute="centerY" secondItem="Kfk-0c-GyO" secondAttribute="centerY" id="XPv-g2-9Ox"/>
+                            <constraint firstItem="0hi-lp-gpK" firstAttribute="centerY" secondItem="Kfk-0c-GyO" secondAttribute="centerY" constant="-26.5" id="XPv-g2-9Ox"/>
                             <constraint firstItem="0hi-lp-gpK" firstAttribute="width" secondItem="dac-WN-lCl" secondAttribute="width" id="ZLb-wj-xGN"/>
                             <constraint firstItem="0hi-lp-gpK" firstAttribute="centerX" secondItem="Kfk-0c-GyO" secondAttribute="centerX" id="ccu-L0-Dnq"/>
                             <constraint firstItem="Kfk-0c-GyO" firstAttribute="bottom" secondItem="jy7-tt-cOl" secondAttribute="bottom" id="pUN-sb-vlJ"/>
@@ -279,18 +280,40 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kfk-0c-GyO"/>
                     </view>
+                    <connections>
+                        <outlet property="codLabel" destination="KlG-At-doP" id="MPJ-D9-Gx7"/>
+                        <segue destination="TzG-QY-VVW" kind="showDetail" identifier="showAuth" animates="NO" id="37X-Mi-Cos"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tkq-Vf-Slj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882.60869565217399" y="-106.47321428571428"/>
+            <point key="canvasLocation" x="1792.753623188406" y="-106.47321428571428"/>
         </scene>
         <!--Auth-->
         <scene sceneID="eSF-2t-RWC">
             <objects>
-                <viewControllerPlaceholder storyboardName="Auth" id="TzG-QY-VVW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4g-Ap-ukX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Auth" id="TzG-QY-VVW" sceneMemberID="viewController"/>
             </objects>
-            <point key="canvasLocation" x="902" y="291"/>
+            <point key="canvasLocation" x="2325" y="-106"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IqL-70-Nys">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5uJ-gl-6Ho" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zbh-EL-uKx">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2Al-Uc-Rdp" kind="relationship" relationship="rootViewController" id="0Uf-V3-dS5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T9t-Uz-qtQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100.00000000000001" y="-105.13392857142857"/>
         </scene>
     </scenes>
     <resources>

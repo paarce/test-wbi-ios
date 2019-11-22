@@ -41,6 +41,7 @@
 		8622F54C2386E66F00E067D8 /* uilabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F54B2386E66F00E067D8 /* uilabel+extension.swift */; };
 		8622F54E2386EF4200E067D8 /* string+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F54D2386EF4100E067D8 /* string+extension.swift */; };
 		8622F5512386FCBC00E067D8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F5502386FCBC00E067D8 /* LoginViewModel.swift */; };
+		8622F5532387932900E067D8 /* CongratulationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F5522387932900E067D8 /* CongratulationsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		8622F54B2386E66F00E067D8 /* uilabel+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "uilabel+extension.swift"; sourceTree = "<group>"; };
 		8622F54D2386EF4100E067D8 /* string+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "string+extension.swift"; sourceTree = "<group>"; };
 		8622F5502386FCBC00E067D8 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		8622F5522387932900E067D8 /* CongratulationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationsViewController.swift; sourceTree = "<group>"; };
 		A4D5B643B250EEC94848EF24 /* Pods-E-Commerce WBI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-Commerce WBI.debug.xcconfig"; path = "Target Support Files/Pods-E-Commerce WBI/Pods-E-Commerce WBI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -378,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				8622F541238617D900E067D8 /* CartListViewController.swift */,
+				8622F5522387932900E067D8 /* CongratulationsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				8622F53A23860ABE00E067D8 /* CategoryModel.swift in Sources */,
 				8622F53F2386126B00E067D8 /* CartItemTableViewCell.swift in Sources */,
 				8622F5512386FCBC00E067D8 /* LoginViewModel.swift in Sources */,
+				8622F5532387932900E067D8 /* CongratulationsViewController.swift in Sources */,
 				8622F53C23860EC200E067D8 /* CounterIntView.swift in Sources */,
 				8622F519237CB26C00E067D8 /* ProductModel.swift in Sources */,
 				8622F54A238632EE00E067D8 /* CartViewModel.swift in Sources */,

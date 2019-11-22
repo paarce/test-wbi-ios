@@ -26,6 +26,17 @@ class ProductTableViewController: UITableViewController {
         productVM.loadCategories()
         productVM.loadProducts()
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        var  cartItemList : [CartItem] = []
+        ManagerRLM.sharedInstance.retieveList(CartItemRLM.self, model: &cartItemList)
+        
+        self.navigationController?.navigationBar.topItem?.title = "E-commerce"
+        self.navigationItem.rightBarButtonItem?.title = "🛒(\(cartItemList.count))"
+        
+    }
 
     // MARK: - Table view data source
 

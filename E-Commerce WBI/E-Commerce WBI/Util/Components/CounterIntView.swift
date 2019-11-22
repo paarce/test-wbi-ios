@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+protocol CounterIntViewDelegate {
+    func updateAmount(count : Int)
+}
+
 class CounterIntView: UIView {
     
     var minusButton : UIButton?
@@ -20,24 +24,33 @@ class CounterIntView: UIView {
         }
     }
     
+    var delegate : CounterIntViewDelegate?
+    
     override func draw(_ rect: CGRect) {
         
-        if let counter = self.viewWithTag(0) as? UILabel, let minus = self.viewWithTag(1) as? UIButton, let plus = self.viewWithTag(2) as? UIButton {
+        if let minus = self.viewWithTag(1) as? UIButton,  let counter = self.viewWithTag(2) as? UILabel, let plus = self.viewWithTag(3) as? UIButton {
             
             self.minusButton = minus
             self.plusButton = plus
             self.counterLabel = counter
             
-            
-            self.minusButton!.addTarget(self, action: #selector(CounterIntView.actionWithParam(sender:)), for: .touchUpInside)
-            
+            self.plusButton!.addTarget(self, action: #selector(CounterIntView.action(sender:)), for: .touchUpInside)
+            self.minusButton!.addTarget(self, action: #selector(CounterIntView.action(sender:)), for: .touchUpInside)
+            self.counterLabel!.text = "\(self.count)"
         }
         
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 4
     }
     
-    @objc func actionWithParam(sender: UIButton){
-        //...
+    @objc func action(sender: UIButton){
+        
+        if sender.tag == 1 {
+            self.count = self.count == 0 ? 0 : self.count - 1
+            delegate?.updateAmount(count: self.count)
+        }else if sender.tag == 3 {
+             self.count += 1
+            delegate?.updateAmount(count: self.count)
+        }
     }
 }

@@ -12,7 +12,7 @@ import RealmSwift
 
 /// Struct to encapsulate the "Interval" data from json
 
-struct CartItem : Persistable {
+class CartItem : Persistable {
     
     typealias ManagedObject = CartItemRLM
     
@@ -20,25 +20,28 @@ struct CartItem : Persistable {
     let productName : String
     let productImage : String
     var count : Int
+    let price : Float
     var size : SizeEnum
     var color : ProductColorRGBModel
     
-    init(product : ProductModel, count : Int, size : SizeEnum, color : ProductColorRGBModel) {
+    init(product : ProductModel, stock : StockModel) {
         
         self.id = "\(product.id)"
         self.productName = product.name ?? ""
         self.productImage = product.imageName ?? ""
-        self.count = count
-        self.size = size
-        self.color = color
+        self.price = product.price ?? 0.0
+        self.count = stock.count
+        self.size = stock.size
+        self.color = stock.color
     }
     
-    public init(managedObject: ManagedObject) {
+    required public init(managedObject: ManagedObject) {
         
         id = managedObject.id
         productName = managedObject.productName
         productImage = managedObject.productImage
         count = managedObject.count
+        price = managedObject.price
         size = .s
         
         for sizeAux in SizeEnum.allCases {
@@ -66,6 +69,7 @@ struct CartItem : Persistable {
         object.productName = productName
         object.productImage = productImage
         object.count = count
+        object.price = price
         object.size = size.rawValue
         object.color = "\(color.r)/\(color.g)/\(color.b)"
         
@@ -80,6 +84,7 @@ class CartItemRLM :  Object {
     @objc dynamic var productName : String = ""
     @objc dynamic var productImage : String = ""
     @objc dynamic var count : Int = 0
+    @objc dynamic var price : Float = 0.0
     @objc dynamic var size : String = ""
     @objc dynamic var color : String = ""
     
