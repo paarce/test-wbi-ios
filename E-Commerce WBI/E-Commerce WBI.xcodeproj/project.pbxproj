@@ -42,6 +42,7 @@
 		8622F54E2386EF4200E067D8 /* string+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F54D2386EF4100E067D8 /* string+extension.swift */; };
 		8622F5512386FCBC00E067D8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F5502386FCBC00E067D8 /* LoginViewModel.swift */; };
 		8622F5532387932900E067D8 /* CongratulationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F5522387932900E067D8 /* CongratulationsViewController.swift */; };
+		8622F5552387A7DE00E067D8 /* uitableview+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622F5542387A7DE00E067D8 /* uitableview+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		8622F54D2386EF4100E067D8 /* string+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "string+extension.swift"; sourceTree = "<group>"; };
 		8622F5502386FCBC00E067D8 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8622F5522387932900E067D8 /* CongratulationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationsViewController.swift; sourceTree = "<group>"; };
+		8622F5542387A7DE00E067D8 /* uitableview+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "uitableview+extension.swift"; sourceTree = "<group>"; };
 		A4D5B643B250EEC94848EF24 /* Pods-E-Commerce WBI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-Commerce WBI.debug.xcconfig"; path = "Target Support Files/Pods-E-Commerce WBI/Pods-E-Commerce WBI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -328,6 +330,7 @@
 				8622F52F2385E95300E067D8 /* array+extension.swift */,
 				8622F54B2386E66F00E067D8 /* uilabel+extension.swift */,
 				8622F54D2386EF4100E067D8 /* string+extension.swift */,
+				8622F5542387A7DE00E067D8 /* uitableview+extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				8622F51E237CB5A500E067D8 /* uicolor+extension.swift in Sources */,
 				8622F52E23844E0F00E067D8 /* navigationcontroller+extension.swift in Sources */,
 				8622F54523862BAF00E067D8 /* ManagerRLM.swift in Sources */,
+				8622F5552387A7DE00E067D8 /* uitableview+extension.swift in Sources */,
 				8622F523238064F000E067D8 /* Const.swift in Sources */,
 				8622F52C2384382C00E067D8 /* uidevice+extension.swift in Sources */,
 				8622F5302385E95300E067D8 /* array+extension.swift in Sources */,

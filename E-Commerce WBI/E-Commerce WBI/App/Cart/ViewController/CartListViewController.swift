@@ -38,6 +38,13 @@ class CartListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if self.data.count == 0 {
+            self.tableView.setEmptyView(title: "Cart empty.", message: "Here you will see your products added")
+        }
+        else {
+            self.tableView.restore()
+        }
         return self.data.count
     }
     

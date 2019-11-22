@@ -160,17 +160,24 @@ class ProductTableViewController: UITableViewController {
     @IBAction func onLogOut(_ sender: Any) {
         
         
-        let alert = UIAlertController(title: "Log Out", message: "Are you sure you want to leave?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Log out", message: "Are you sure you want to leave?", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Log Out", style: .default){ (action) in
+        alert.addAction(UIAlertAction(title: "Log out", style: .default){ (action) in
             
             defaults.removeObject(forKey: KeysEnum.user_email.rawValue)
+            
+            
+            var  data : [CartItem] = []
+            ManagerRLM.sharedInstance.retieveList(CartItemRLM.self, model: &data)
+            
+            for item in data {
+                ManagerRLM.sharedInstance.remove(CartItemRLM.self, id: item.id)
+            }
             
             self.performSegue(withIdentifier: "showAuth", sender: self)
         })
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-            self.navigationController?.popViewController(animated: false)
         })
         
         self.present(alert, animated: true)

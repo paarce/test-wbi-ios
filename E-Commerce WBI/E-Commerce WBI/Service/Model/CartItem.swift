@@ -26,7 +26,7 @@ class CartItem : Persistable {
     
     init(product : ProductModel, stock : StockModel) {
         
-        self.id = "\(product.id)"
+        self.id = "\(product.id)@\(stock.size.rawValue)@\(stock.color.description)"
         self.productName = product.name ?? ""
         self.productImage = product.imageName ?? ""
         self.price = product.price ?? 0.0

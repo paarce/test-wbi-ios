@@ -88,7 +88,7 @@ class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
             var aux : CartItem?
             let item = CartItem(product: data, stock: StockModel(count: 1, size: sizeSelected, color: colorSelected))
             
-            ManagerRLM.sharedInstance.retieve(CartItemRLM.self, model: &aux, id: "\(data.id)")
+            ManagerRLM.sharedInstance.retieve(CartItemRLM.self, model: &aux, id: item.id)
             
             if let aux = aux {
                 if aux.size == item.size {
