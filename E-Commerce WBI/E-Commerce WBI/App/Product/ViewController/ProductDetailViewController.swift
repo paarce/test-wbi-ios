@@ -18,7 +18,7 @@ class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var sizeCollectionView: UICollectionView!
     @IBOutlet weak var colorCollectionView: UICollectionView!
     @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var addButton: EcoButton!
     
     var isVisibleNavigation = true
     
@@ -55,7 +55,6 @@ class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
             self.nameLabel.text = data.name
             self.priceLabel.text = "$\(data.price?.dollar ?? "$")"
             self.productImageView.image = UIImage(named: data.imageName != nil ? "product\(data.imageName!)" : "avatar" )
-            
             self.loadParametersUI()
         }
         
@@ -161,7 +160,7 @@ extension ProductDetailViewController {
                 .modelSelected(SizeEnum.self)
                 .subscribe({ value in
                     self.sizeSelected = value.element
-                    self.addButton.isEnabled = self.colorSelected != nil && self.sizeSelected != nil 
+                    self.addButton.setOwned(enable: self.colorSelected != nil && self.sizeSelected != nil)
                     self.sizeCollectionView.reloadData()
                 })
                 .disposed(by: disposbag)
@@ -187,7 +186,8 @@ extension ProductDetailViewController {
                 .modelSelected(ProductColorRGBModel.self)
                 .subscribe({ value in
                     self.colorSelected = value.element
-                    self.addButton.isEnabled = self.colorSelected != nil && self.sizeSelected != nil
+                    
+                    self.addButton.setOwned(enable: self.colorSelected != nil && self.sizeSelected != nil)
                     self.colorCollectionView.reloadData()
                 })
                 .disposed(by: disposbag)

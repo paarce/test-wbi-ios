@@ -15,4 +15,9 @@ class EcoButton : UIButton {
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 4
     }
+    
+    func setOwned(enable : Bool) {
+        self.isEnabled = enable
+        self.backgroundColor = enable ? .greenEco : .lightGray
+    }
 }
