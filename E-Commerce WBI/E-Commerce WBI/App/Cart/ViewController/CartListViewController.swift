@@ -30,6 +30,9 @@ class CartListViewController: UIViewController, UITableViewDelegate, UITableView
         self.calculateTotal()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.defaultBrackgorund()
+    }
     
     private func loadCartItems() {
         

@@ -6,6 +6,7 @@
 //  Copyright © 2019 Augusto C.P. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import IQKeyboardManagerSwift
 
@@ -20,9 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         ManagerRLM.sharedInstance.setDefaultRealmForUser(username: "Eco-WBI")
         IQKeyboardManager.shared.enable = true
-        
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.darkGray]
-        UINavigationBar.appearance().tintColor = UIColor.darkGray
+        if UIScreen.main.traitCollection.userInterfaceStyle == .light {
+            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.darkGray]
+            UINavigationBar.appearance().tintColor = UIColor.darkGray
+        }else{
+            
+            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+            UINavigationBar.appearance().tintColor = .white
+        }
+
         
         return true
     }

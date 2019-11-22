@@ -16,7 +16,8 @@ extension UINavigationController {
         self.navigationBar.shadowImage = UIImage()
         self.navigationBar.isTranslucent = true
         self.view.backgroundColor = .clear
-        self.navigationBar.tintColor = UIColor.darkGray
+        self.navigationBar.tintColor = .darkGray
+        
     }
     
     
@@ -24,7 +25,7 @@ extension UINavigationController {
         
         self.navigationBar.setBackgroundImage(nil, for: .default)
         self.navigationBar.shadowImage = nil
-        self.navigationBar.tintColor = UIColor.darkGray
+        self.navigationBar.tintColor = traitCollection.userInterfaceStyle == .light ? .darkGray : .white
     }
     
 }

@@ -22,6 +22,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.configUI()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.navigationController?.clearBrackgorund()
+    }
     
     // MARK: - Config UI
     
@@ -36,7 +40,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             
         }else{
-            self.navigationController?.clearBrackgorund()
             self.emailTextField.delegate = self
             self.passwordTextField.delegate = self
             
@@ -70,6 +73,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.loginVM.perfomLogin(email: password, password: password) {
                 
                 self.removeLoading()
+                self.emailTextField.text = ""
+                self.passwordTextField.text = ""
                 self.performSegue(withIdentifier: "showProducts", sender: self)
             }
         }

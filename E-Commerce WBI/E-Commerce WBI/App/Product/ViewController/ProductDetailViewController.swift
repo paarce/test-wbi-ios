@@ -45,6 +45,8 @@ class ProductDetailViewController: UIViewController, UIScrollViewDelegate {
         super.viewWillDisappear(animated)
         
         self.setBackgraoundNavigation(visible: false)
+        self.navigationController?.navigationBar.topItem?.title = "E-commerce"
+        
     }
     
     // MARK: - Config UI

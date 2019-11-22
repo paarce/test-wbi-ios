@@ -22,7 +22,7 @@ class ProductTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.defaultBrackgorund()
         productVM.loadCategories()
         productVM.loadProducts()
     }
@@ -174,7 +174,8 @@ class ProductTableViewController: UITableViewController {
                 ManagerRLM.sharedInstance.remove(CartItemRLM.self, id: item.id)
             }
             
-            self.performSegue(withIdentifier: "showAuth", sender: self)
+            //self.performSegue(withIdentifier: "showAuth", sender: self)
+            self.navigationController?.popToRootViewController(animated: true)
         })
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in

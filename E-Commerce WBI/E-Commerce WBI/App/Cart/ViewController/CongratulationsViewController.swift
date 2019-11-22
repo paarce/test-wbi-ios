@@ -14,7 +14,8 @@ class CongratulationsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.navigationController?.clearBrackgorund()
         self.navigationItem.setHidesBackButton(true, animated: false)
         
         self.codLabel.text = "Cod. 00002\(Int.random(in: 1034 ..< 6666))"
@@ -22,7 +23,12 @@ class CongratulationsViewController: UIViewController {
     
     @IBAction func onGoHome(_ sender: Any) {
         
-        self.performSegue(withIdentifier: "showAuth", sender: nil)
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers
+        for aViewController in viewControllers {
+            if aViewController is ProductTableViewController {
+                self.navigationController!.popToViewController(aViewController, animated: true)
+            }
+        }
     }
     
     /*
